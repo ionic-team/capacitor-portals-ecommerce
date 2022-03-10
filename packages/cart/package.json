@@ -13,6 +13,10 @@
     "provider-lib": "^0.1.0",
     "sass": "^1.19.0"
   },
+  "devDependencies": {
+    "@craco/craco": "6.4.3",
+    "craco-module-federation": "1.1.0"
+  },
   "scripts": {
     "start": "export PORT=3005; react-scripts start",
     "build": "react-scripts build",
