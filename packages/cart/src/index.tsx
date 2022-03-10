@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { CheckoutPage } from './pages/CheckoutPage';
+import { PaymentPage } from './pages/PaymentPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CheckoutPage />
+    <PaymentPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
