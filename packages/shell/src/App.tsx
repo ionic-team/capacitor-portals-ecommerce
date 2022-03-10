@@ -41,7 +41,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { DataProvider } from 'provider-lib';
+import { DataProvider } from './provider-lib';
 
 const App: React.FC = () => {
   return (

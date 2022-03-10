@@ -1,13 +1,6 @@
 {
   "name": "capacitor-portals-ecommerce",
   "private": true,
-  "workspaces": [
-    "packages/account",
-    "packages/cart",
-    "packages/help-info",
-    "packages/provider-lib",
-    "packages/shell"
-  ],
   "version": "1.0.0",
   "description": ""
 }

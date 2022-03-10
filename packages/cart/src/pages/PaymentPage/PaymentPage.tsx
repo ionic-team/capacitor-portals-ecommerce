@@ -20,7 +20,7 @@ import {
   IonToolbar,
   useIonRouter,
 } from '@ionic/react';
-import { DataContext, CreditCard, User } from 'provider-lib';
+import { DataContext, CreditCard, User } from '../../provider-lib';
 import './PaymentPage.css';
 
 type PaymentPageMatch = {

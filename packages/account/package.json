@@ -3,23 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/camera": "^1.0.0",
+    "@capacitor/core": "^3.4.3",
     "@ionic/react": "^6.0.11",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "@capacitor/camera": "^1.0.0",
     "react": "^17.0.2",
-    "react-transition-group": "^4.4.2",
     "react-cropper": "^2.1.7",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "provider-lib": "^0.1.0",
+    "react-transition-group": "^4.4.2",
     "sass": "^1.19.0"
   },
   "devDependencies": {
-    "@types/react-transition-group": "^4.4.3",
     "@craco/craco": "^6.4.3",
-    "craco-module-federation": "^1.1.0"
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@types/react-transition-group": "^4.4.3",
+    "craco-module-federation": "^1.1.0",
+    "typescript": "^4.3.2"
   },
   "scripts": {
     "start": "craco start",
