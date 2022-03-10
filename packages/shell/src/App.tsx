@@ -5,12 +5,22 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router';
-import { DevPage } from './pages/DevPage';
-import { AddressPage } from './pages/AddressPage';
-import { CheckoutPage } from './pages/CheckoutPage';
-import { HelpPage } from './pages/HelpPage';
-import { PaymentPage } from './pages/PaymentPage';
-import { UserDetailPage } from './pages/UserDetailPage';
+import { ShopPage } from './ShopPage';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import { AddressPage } from 'account/AddressPage';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import { CheckoutPage } from 'cart/CheckoutPage';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import { HelpPage } from 'help-info/HelpPage';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import { PaymentPage } from 'cart/PaymentPage';
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import { UserDetailPage } from 'account/UserDetailPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
