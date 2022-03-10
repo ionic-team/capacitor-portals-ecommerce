@@ -1,5 +1,5 @@
 {
-  "name": "portals-ecommerce-demo",
+  "name": "shell",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,18 +23,17 @@
     "ionicons": "^5.5.1",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
-    "react-cropper": "^2.1.7",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
     "typescript": "^4.3.2",
-    "web-vitals": "^1.1.2"
+    "provider-lib": "^0.1.0"
   },
   "devDependencies": {
     "@types/react-router": "^5.1.14"
   },
   "scripts": {
-    "start": "export PORT=3001 react-scripts start",
+    "start": "export PORT=3001; react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

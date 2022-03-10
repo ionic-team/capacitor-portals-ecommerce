@@ -7,14 +7,20 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@capacitor/camera": "^1.0.0",
     "react": "^17.0.2",
+    "react-transition-group": "^4.4.2",
+    "react-cropper": "^2.1.7",
     "react-dom": "^17.0.2",
-    "react-router": "^5.2.1",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "provider-lib": "^0.1.0",
+    "sass": "^1.19.0"
+  },
+  "devDependencies": {
+    "@types/react-transition-group": "^4.4.3"
   },
   "scripts": {
-    "start": "export PORT=3004 react-scripts start",
+    "start": "export PORT=3004; react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

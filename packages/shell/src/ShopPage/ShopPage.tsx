@@ -3,7 +3,7 @@ import { IonContent, IonIcon, IonItem, IonPage } from '@ionic/react';
 import { callOutline, mailOutline } from 'ionicons/icons';
 import FadeIn from '../components/FadeIn';
 
-import './HelpPage.scss';
+import './ShopPage.scss';
 
 const HelpPage = () => {
   return (

@@ -13,12 +13,10 @@ import {
   IonToolbar,
   useIonRouter,
 } from '@ionic/react';
-import { DataContext } from '../../DataProvider';
+import { DataContext, Address, CreditCard } from 'provider-lib';
 import './CheckoutPage.scss';
-import { Address, CreditCard } from '../../models';
 import AddressItem from '../../components/AddressItem';
 import PaymentItem from '../../components/PaymentItem';
-import Portals from '@ionic/portals';
 import FadeIn from '../../components/FadeIn';
 
 var worker = new Worker('worker.js')
@@ -53,11 +51,7 @@ const CheckoutPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton
-              onClick={() => {
-                Portals.publish({ topic: 'dismiss', data: 'cancel' });
-              }}
-            >
+            <IonButton>
               Cancel
             </IonButton>
           </IonButtons>

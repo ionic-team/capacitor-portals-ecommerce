@@ -3,9 +3,9 @@ const deps = require("./package.json").dependencies;
 module.exports = {
   name: "shell",
   remotes: {
-    account: "account@help-info@http://localhost:3002/remoteEntry.js",
-    cart: "cart@http://localhost:3002/remoteEntry.js",
-    'help-info': "help-info@http://localhost:3002/remoteEntry.js",
+    account: "account@http://localhost:3004/remoteEntry.js",
+    cart: "cart@http://localhost:3005/remoteEntry.js",
+    'help-info': "help-info@http://localhost:3006/remoteEntry.js",
   },
   filename: "remoteEntry.js",
   shared: {

@@ -4,7 +4,7 @@ import {
   IonRouterOutlet,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router';
+import { Route } from 'react-router';
 import { ShopPage } from './ShopPage';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -40,9 +40,10 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { DataProvider } from './DataProvider';
 
-const App: React.FC<> = () => {
+import { DataProvider } from 'provider-lib';
+
+const App: React.FC = () => {
   return (
     <DataProvider>
       <IonApp>

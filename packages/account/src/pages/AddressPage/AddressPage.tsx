@@ -18,20 +18,17 @@ import {
   useIonPicker,
   useIonRouter,
 } from '@ionic/react';
-import { DataContext } from '../../DataProvider';
-import { stateCodes } from '../../util/states';
+import { DataContext, Address, User, stateCodes } from 'provider-lib';
 import './AddressPage.css';
-import { RouteComponentProps } from 'react-router';
-import { Address, User } from '../../models';
 
 type AddressPageProps = {
-  id: string;
+  id?: string;
 };
 
-const AddressPage: React.FC<RouteComponentProps<AddressPageProps>> = (
+const AddressPage: React.FC<AddressPageProps> = (
   props
 ) => {
-  const { id } = props.match.params;
+  const { id } = props;
   const { user, setUser } = useContext(DataContext);
   const [address, setAddress] = useState<Address>();
   const [present] = useIonPicker();

@@ -7,52 +7,48 @@ import {
   useIonRouter,
 } from '@ionic/react';
 import React from 'react';
-import { Address, User } from 'provider-lib';
+import { CreditCard } from 'provider-lib';
 
-interface AddressItemProps {
-  address: Address;
-  onAddressSelected?: (address: Address) => void;
+interface PaymentItemProps {
+  creditCard: CreditCard;
+  onPaymentSelected?: (payment: CreditCard) => void;
   selectable?: boolean;
   selectedId?: number;
-  user: User;
 }
 
-const AddressItem: React.FC<AddressItemProps> = ({
-  address,
-  onAddressSelected = () => {},
+const PaymentItem: React.FC<PaymentItemProps> = ({
+  creditCard,
+  onPaymentSelected = () => {},
   selectable = true,
-  selectedId,
-  user,
+  selectedId
 }) => {
   const router = useIonRouter();
   return (
     <IonItem
       button
       detail={false}
+      key={creditCard.id}
       onClick={() => {
-        if (address.id !== selectedId) {
-          onAddressSelected(address);
+        if (creditCard.id !== selectedId) {
+          onPaymentSelected(creditCard);
         }
       }}
     >
       {selectable && (
         <IonCheckbox
           slot="start"
-          checked={address.id === selectedId}
+          checked={creditCard.id === selectedId}
         ></IonCheckbox>
       )}
       <IonLabel className="ion-text-wrap">
-        {user.firstName} {user.lastName} <br />
-        {address.street} <br />
-        {address.city}, {address.state} {address.postal}
+        {creditCard.company} ending in {creditCard.number.slice(-4)}
       </IonLabel>
-      {address.preferred && <IonChip color="success">Default</IonChip>}
       <IonButton
         fill="clear"
         slot="end"
         onClick={(e) => {
           e.stopPropagation();
-          router.push(`/address/${address.id}`);
+          router.push(`/payment/${creditCard.id}`);
         }}
       >
         Edit
@@ -61,4 +57,4 @@ const AddressItem: React.FC<AddressItemProps> = ({
   );
 };
 
-export default AddressItem;
+export default PaymentItem;

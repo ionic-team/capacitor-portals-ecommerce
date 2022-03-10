@@ -20,17 +20,14 @@ import {
   IonToolbar,
   useIonRouter,
 } from '@ionic/react';
-import { RouteComponentProps } from 'react-router';
-import { DataContext } from '../../DataProvider';
+import { DataContext, CreditCard, User } from 'provider-lib';
 import './PaymentPage.css';
-import { CreditCard, User } from '../../models';
 
 type PaymentPageMatch = {
-  id: string;
+  id?: string;
 };
 
-const PaymentPage = (props: RouteComponentProps<PaymentPageMatch>) => {
-  const { id } = props.match.params;
+const PaymentPage: React.FC<PaymentPageMatch> = ({ id }) => {
   const { user, setUser } = useContext(DataContext);
   const [creditCard, setCreditCard] = useState<CreditCard>();
   const router = useIonRouter();
@@ -159,7 +156,6 @@ const PaymentPage = (props: RouteComponentProps<PaymentPageMatch>) => {
                     <IonCol>
                       <IonLabel position="stacked">Exp Date</IonLabel>
                       <IonDatetime
-                        displayFormat="MM/YYYY"
                         min={new Date().toISOString()}
                         max="2031"
                         placeholder="Exp Date"

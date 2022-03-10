@@ -3,7 +3,8 @@ const deps = require("./package.json").dependencies;
 module.exports = {
   name: "account",
   exposes: {
-    "./Button": "./src/Components/Button",
+    "./AddressPage": "./src/pages/AddressPage",
+    "./UserDetailPage": "./src/pages/UserDetailPage",
   },
   filename: "remoteEntry.js",
   shared: {
