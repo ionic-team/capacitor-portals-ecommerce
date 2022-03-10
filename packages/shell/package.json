@@ -34,7 +34,7 @@
     "@types/react-router": "^5.1.14"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "export PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
