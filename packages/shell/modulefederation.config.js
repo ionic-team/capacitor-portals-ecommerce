@@ -5,7 +5,7 @@ module.exports = {
   remotes: {
     account: "account@http://localhost:3004/remoteEntry.js",
     cart: "cart@http://localhost:3005/remoteEntry.js",
-    'help-info': "help-info@http://localhost:3006/remoteEntry.js",
+    helpinfo: "helpinfo@http://localhost:3006/remoteEntry.js",
   },
   filename: "remoteEntry.js",
   shared: {
