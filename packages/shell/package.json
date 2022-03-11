@@ -33,7 +33,8 @@
   "devDependencies": {
     "@craco/craco": "^6.4.3",
     "@types/react-router": "^5.1.14",
-    "craco-module-federation": "^1.1.0"
+    "craco-module-federation": "^1.1.0",
+    "serve": "^13.0.2"
   },
   "scripts": {
     "start": "craco start",

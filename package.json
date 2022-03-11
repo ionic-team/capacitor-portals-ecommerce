@@ -1,6 +1,19 @@
 {
-  "name": "capacitor-portals-ecommerce",
   "private": true,
-  "version": "1.0.0",
-  "description": ""
+  "workspaces": {
+    "packages": [
+      "account",
+      "cart",
+      "helpinfo",
+      "shell"
+    ]
+  },
+  "scripts": {
+    "serve": "lerna run --parallel serve",
+    "bootstrap": "lerna bootstrap"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "name": "capacitor-portals-ecommerce"
 }
