@@ -31,7 +31,7 @@ import './theme/variables.css';
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
-const UserDetailPage = React.lazy(() => import('account/UserDtailPage'));
+const UserDetailPage = React.lazy(() => import('account/UserDetailPage'));
 // @ts-ignore
 const CheckoutPage = React.lazy(() => import('cart/CheckoutPage'));
 // @ts-ignore
