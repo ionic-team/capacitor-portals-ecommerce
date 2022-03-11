@@ -5,7 +5,7 @@ import FadeIn from '../components/FadeIn';
 
 import './ShopPage.scss';
 
-const HelpPage = () => {
+const ShopPage = () => {
   return (
     <IonPage id="help-page">
       <FadeIn isLoaded={true}>
@@ -39,4 +39,4 @@ const HelpPage = () => {
   );
 };
 
-export default HelpPage;
+export default ShopPage;

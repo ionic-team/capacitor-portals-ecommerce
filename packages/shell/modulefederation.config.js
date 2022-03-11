@@ -18,5 +18,13 @@ module.exports = {
       singleton: true,
       requiredVersion: deps["react-dom"],
     },
-  },
+    "@ionic/react": {
+      singleton: true,
+      requiredVersion: deps["@ionic/react"],
+    },
+    "@capacitor/core": {
+      singleton: true,
+      requiredVersion: deps["@capacitor/core"],
+    }
+  }
 };

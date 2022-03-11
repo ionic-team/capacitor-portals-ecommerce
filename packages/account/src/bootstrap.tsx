@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  IonApp,
-} from '@ionic/react';
+import { IonApp, setupIonicReact } from '@ionic/react';
+import { AddressPage } from './pages/AddressPage';
+import { UserDetailPage } from './pages/UserDetailPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,16 +23,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { HelpPage } from './pages/HelpPage';
-import { DataProvider } from './provider-lib';  
+setupIonicReact();
 
 ReactDOM.render(
   <React.StrictMode>
-    <DataProvider>
-      <IonApp>
-        <HelpPage />
-      </IonApp>
-    </DataProvider>
+    <IonApp>
+      <UserDetailPage />
+      <AddressPage />
+    </IonApp>
   </React.StrictMode>,
   document.getElementById('root')
 );

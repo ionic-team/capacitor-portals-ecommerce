@@ -2,25 +2,13 @@ import React from 'react';
 import {
   IonApp,
   IonRouterOutlet,
+  setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Route } from 'react-router';
 import { ShopPage } from './ShopPage';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { AddressPage } from 'account/AddressPage';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { CheckoutPage } from 'cart/CheckoutPage';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { HelpPage } from 'help-info/HelpPage';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { PaymentPage } from 'cart/PaymentPage';
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import { UserDetailPage } from 'account/UserDetailPage';
+import { DataProvider } from './provider-lib';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -41,7 +29,18 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { DataProvider } from './provider-lib';
+// @ts-ignore
+const AddressPage = React.lazy(() => import('account/AddressPage'));
+// @ts-ignore
+const UserDetailPage = React.lazy(() => import('account/UserDtailPage'));
+// @ts-ignore
+const CheckoutPage = React.lazy(() => import('cart/CheckoutPage'));
+// @ts-ignore
+const PaymentPage = React.lazy(() => import('cart/PaymentPage'));
+// @ts-ignore
+const HelpPage = React.lazy(() => import('help-info/HelpPage'));
+
+setupIonicReact();
 
 const App: React.FC = () => {
   return (
@@ -49,14 +48,16 @@ const App: React.FC = () => {
       <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route exact path="/" component={ShopPage} />
-            <Route path="/address" exact component={AddressPage} />
-            <Route path="/address/:id" exact component={AddressPage} />
-            <Route path="/checkout" exact component={CheckoutPage} />
-            <Route path="/help" exact component={HelpPage} />
-            <Route path="/payment" exact component={PaymentPage} />
-            <Route path="/payment/:id" component={PaymentPage} />
-            <Route path="/user" exact component={UserDetailPage} />
+            <React.Suspense fallback="Loading Button">
+              <Route exact path="/" component={ShopPage} />
+              <Route path="/address" exact component={AddressPage} />
+              <Route path="/address/:id" exact component={AddressPage} />
+              <Route path="/checkout" exact component={CheckoutPage} />
+              <Route path="/help" exact component={HelpPage} />
+              <Route path="/payment" exact component={PaymentPage} />
+              <Route path="/payment/:id" component={PaymentPage} />
+              <Route path="/user" exact component={UserDetailPage} />
+            </React.Suspense>
           </IonRouterOutlet>
         </IonReactRouter>
       </IonApp>
