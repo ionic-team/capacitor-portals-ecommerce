@@ -1,7 +1,7 @@
 const deps = require("./package.json").dependencies;
 
 module.exports = {
-  name: "account",
+  name: "helpinfo",
   exposes: {
     "./HelpPage": "./src/pages/HelpPage/HelpPage",
   },
