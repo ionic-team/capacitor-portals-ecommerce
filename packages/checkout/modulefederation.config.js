@@ -1,7 +1,7 @@
 const deps = require("./package.json").dependencies;
 
 module.exports = {
-  name: "cart",
+  name: "checkout",
   exposes: {
     "./CheckoutPage": "./src/pages/CheckoutPage/CheckoutPage",
     "./PaymentPage": "./src/pages/PaymentPage/PaymentPage",

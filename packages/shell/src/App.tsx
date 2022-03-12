@@ -34,18 +34,18 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 import { ShopPage } from './pages/ShopPage';
+import { ItemPage } from './pages/ItemPage';
 import { CartPage } from './pages/CartPage';
+import { HelpPage } from './pages/HelpPage';
 
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
 const UserDetailPage = React.lazy(() => import('account/UserDetailPage'));
 // @ts-ignore
-const CheckoutPage = React.lazy(() => import('cart/CheckoutPage'));
+const CheckoutPage = React.lazy(() => import('checkout/CheckoutPage'));
 // @ts-ignore
-const PaymentPage = React.lazy(() => import('cart/PaymentPage'));
-// @ts-ignore
-const HelpPage = React.lazy(() => import('helpinfo/HelpPage'));
+const PaymentPage = React.lazy(() => import('checkout/PaymentPage'));
 
 setupIonicReact();
 
@@ -57,7 +57,9 @@ const App: React.FC = () => {
           <IonTabs>
             <IonRouterOutlet>
               <React.Suspense fallback="Loading Button">
-                <Route exact path="/" component={ShopPage} />
+                <Route path="/shop" component={ShopPage} />
+                <Route path="/shop/:id" component={ItemPage} />
+                <Route path="/help" component={HelpPage} />
                 <Route path="/cart" exact component={CartPage} />
                 <Route path="/user" exact component={UserDetailPage} />
                 <Route path="/address" exact component={AddressPage} />
@@ -68,7 +70,7 @@ const App: React.FC = () => {
               </React.Suspense>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
-              <IonTabButton tab="shop" href="/">
+              <IonTabButton tab="shop" href="/shop">
                 <IonIcon icon={gridOutline} />
               </IonTabButton>
               <IonTabButton tab="cart" href="/cart">
