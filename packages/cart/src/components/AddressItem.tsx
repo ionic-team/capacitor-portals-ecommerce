@@ -7,7 +7,7 @@ import {
   useIonRouter,
 } from '@ionic/react';
 import React from 'react';
-import { Address, User } from '../provider-lib';
+import { Address, User } from 'provider-lib';
 
 interface AddressItemProps {
   address: Address;

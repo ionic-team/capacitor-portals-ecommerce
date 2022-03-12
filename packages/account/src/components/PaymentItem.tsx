@@ -7,7 +7,7 @@ import {
   useIonRouter,
 } from '@ionic/react';
 import React from 'react';
-import { CreditCard } from '../provider-lib';
+import { CreditCard } from 'provider-lib';
 
 interface PaymentItemProps {
   creditCard: CreditCard;

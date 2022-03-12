@@ -5,7 +5,8 @@
       "account",
       "cart",
       "helpinfo",
-      "shell"
+      "shell",
+      "provider-lib"
     ]
   },
   "scripts": {

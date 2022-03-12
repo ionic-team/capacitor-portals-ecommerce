@@ -13,7 +13,7 @@ import {
   IonToolbar,
   useIonRouter,
 } from '@ionic/react';
-import { DataContext, Address, CreditCard } from '../../provider-lib';
+import { DataContext, Address, CreditCard } from 'provider-lib';
 import './CheckoutPage.scss';
 import AddressItem from '../../components/AddressItem';
 import PaymentItem from '../../components/PaymentItem';

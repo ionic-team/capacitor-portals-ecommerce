@@ -18,7 +18,7 @@ import {
   useIonPicker,
   useIonRouter,
 } from '@ionic/react';
-import { DataContext, Address, User, stateCodes } from '../../provider-lib';
+import { DataContext, Address, User, stateCodes } from 'provider-lib';
 import './AddressPage.css';
 
 type AddressPageProps = {

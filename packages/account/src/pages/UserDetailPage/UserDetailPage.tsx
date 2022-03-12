@@ -15,7 +15,7 @@ import {
   useIonModal,
 } from '@ionic/react';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { DataContext } from '../../provider-lib';
+import { DataContext } from 'provider-lib';
 import { add } from 'ionicons/icons';
 import { Camera, CameraDirection, CameraResultType } from '@capacitor/camera';
 import './UserDetailPage.scss';

@@ -22,7 +22,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 import { HelpPage } from './pages/HelpPage';
-import { DataProvider } from './provider-lib';
+import { DataProvider } from 'provider-lib';
 
 setupIonicReact();
 
