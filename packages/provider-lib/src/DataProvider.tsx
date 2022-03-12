@@ -1,7 +1,6 @@
-import { Capacitor } from '@capacitor/core';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Cart, Data, User } from './models';
-import ShopAPI, { CheckoutResult } from './ShopAPIPlugin';
+import { ShopAPI, CheckoutResult, User, Cart, Data, Product } from './ShopAPI';
+
 export interface DataState {
   loading: boolean;
   user?: User;
@@ -10,6 +9,7 @@ export interface DataState {
   checkout: (result: CheckoutResult) => void;
   userPhoto?: string;
   setUserPhoto: (photo: string) => void;
+  productList: Product[];
 }
 
 export const DataContext = React.createContext<DataState>({} as any);
@@ -19,17 +19,20 @@ export const DataProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>();
   const [cart, setCart] = useState<Cart>();
   const [userPhoto, setUserPhoto] = useState<string>();
+  const [productList, setProductList] = useState<Product[]>([]);
 
   useEffect(() => {
     async function init() {
       setIsLoading(true);
-      const [user, cart, photo] = await Promise.all([
+      const [user, cart, photo, products] = await Promise.all([
         getUserDetails(),
         getCart(),
         getUserPicture(),
+        getProductList()
       ]);
       setUser(user);
       setCart(cart);
+      setProductList(products);
       setUserPhoto(photo);
       setIsLoading(false);
     }
@@ -58,6 +61,7 @@ export const DataProvider: React.FC = ({ children }) => {
         checkout: checkout,
         userPhoto,
         setUserPhoto: setPhotoData,
+        productList
       }}
     >
       {children}
@@ -65,73 +69,33 @@ export const DataProvider: React.FC = ({ children }) => {
   );
 };
 
-/**
- * ShopAPIPlugin.getUserDetails
- */
+async function getProductList(): Promise<Product[]> {
+  const response = await fetch('/data.json');
+  const data = (await response.json()) as Data;
+  return data.products;
+}
+
 async function getUserDetails(): Promise<User> {
-  if (Capacitor.isNativePlatform()) {
-    return ShopAPI.getUserDetails();
-  } else {
-    // mock data for use in dev
-    const response = await fetch('/data.json');
-    await sleep(1000);
-    const data = (await response.json()) as Data;
-    return data.user;
-  }
+  return ShopAPI.getUserDetails();
 }
 
 async function updateUserDetails(user: User): Promise<void> {
-  if (Capacitor.isNativePlatform()) {
-    return ShopAPI.updateUserDetails(user);
-  } else {
-    // noop for use in dev
-  }
+  return ShopAPI.updateUserDetails(user);
 }
 
-/**
- * ShopAPIPlugin.getCart
- */
 async function getCart(): Promise<Cart> {
-  if (Capacitor.isNativePlatform()) {
-    return ShopAPI.getCart();
-  } else {
-    //test data for dev
-    await sleep(1000);
-    return {
-      id: 1,
-      subTotal: 32.33,
-      basket: [{ productId: 1, quantity: 1 }],
-    };
-  }
+  return ShopAPI.getCart();
 }
 
-/**
- * ShopAPIPlugin.checkoutResult
- */
 async function checkout(result: CheckoutResult) {
-  if (Capacitor.isNativePlatform()) {
-    ShopAPI.checkoutResult(result);
-  } else {
-    console.log('checkout: ', { result });
-  }
+  ShopAPI.checkoutResult(result);
 }
 
 async function getUserPicture() {
-  if (Capacitor.isNativePlatform()) {
-    const userPicture = await ShopAPI.getUserPicture();
-    return userPicture.picture;
-  } else {
-    await sleep(1000);
-    return 'images/jt-avatar.png';
-  }
+  const userPicture = await ShopAPI.getUserPicture();
+  return userPicture.picture;
 }
 
 async function setUserPicture(picture: string) {
-  if (Capacitor.isNativePlatform()) {
-    return await ShopAPI.setUserPicture({ picture });
-  }
-}
-
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return await ShopAPI.setUserPicture({ picture });
 }
