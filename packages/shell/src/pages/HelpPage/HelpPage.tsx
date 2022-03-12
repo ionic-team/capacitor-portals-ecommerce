@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
+import { IonPage, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
 // @ts-ignore
 const HelpDetails = React.lazy(() => import('helpinfo/HelpDetails'));
 
@@ -8,6 +8,9 @@ const HelpPage = () => {
     <IonPage id="help-page">
       <IonHeader translucent={true}>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/shop"></IonBackButton>
+          </IonButtons>
           <IonTitle>Help</IonTitle>
         </IonToolbar>
       </IonHeader>

@@ -23,6 +23,10 @@ module.exports = {
     "@capacitor/core": {
       singleton: true,
       requiredVersion: deps["@capacitor/core"],
+    },
+    "provider-lib": {
+      singleton: true,
+      requiredVersion: deps["provider-lib"]
     }
   },
 };
