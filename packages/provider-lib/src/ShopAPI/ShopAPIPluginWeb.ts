@@ -14,7 +14,6 @@ import {
 // Web developers can write their code outside of the native application
 export class ShopAPIPluginWeb extends WebPlugin implements ShopAPIPlugin {
   async getCart() {
-    await sleep(1000);
     return {
       id: 1,
       subTotal: 32.33,
@@ -24,7 +23,6 @@ export class ShopAPIPluginWeb extends WebPlugin implements ShopAPIPlugin {
 
   async getUserDetails() {
     const response = await fetch('/data.json');
-    await sleep(1000);
     const data = (await response.json()) as Data;
     return data.user;
   }
@@ -32,14 +30,12 @@ export class ShopAPIPluginWeb extends WebPlugin implements ShopAPIPlugin {
   async updateUserDetails(user: User) {}
 
   async checkout(result: CheckoutResult) {
-    await sleep(1000);
     console.log('checkout: ', { result });
   }
 
   async checkoutResult(result: CheckoutResult) {}
 
   async getUserPicture() {
-    await sleep(1000);
     return {
       picture: 'images/jt-avatar.png',
     };
