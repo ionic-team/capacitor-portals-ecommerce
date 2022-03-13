@@ -10,7 +10,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { gridOutline, basketOutline, personOutline } from 'ionicons/icons';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router';
 import { DataProvider } from 'provider-lib';
 
 
@@ -43,8 +43,6 @@ const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
 const UserDetailPage = React.lazy(() => import('account/UserDetailPage'));
 // @ts-ignore
-const CheckoutPage = React.lazy(() => import('checkout/CheckoutPage'));
-// @ts-ignore
 const PaymentPage = React.lazy(() => import('checkout/PaymentPage'));
 
 setupIonicReact();
@@ -57,6 +55,9 @@ const App: React.FC = () => {
           <IonTabs>
             <IonRouterOutlet>
               <React.Suspense fallback="Loading Button">
+                <Route exact path="/">
+                  <Redirect to="/shop" />
+                </Route>
                 <Route path="/shop" component={ShopPage} />
                 <Route path="/shop/:id" component={ItemPage} />
                 <Route path="/help" component={HelpPage} />
@@ -64,7 +65,6 @@ const App: React.FC = () => {
                 <Route path="/user" exact component={UserDetailPage} />
                 <Route path="/address" exact component={AddressPage} />
                 <Route path="/address/:id" exact component={AddressPage} />
-                <Route path="/checkout" exact component={CheckoutPage} />
                 <Route path="/payment" exact component={PaymentPage} />
                 <Route path="/payment/:id" component={PaymentPage} />
               </React.Suspense>

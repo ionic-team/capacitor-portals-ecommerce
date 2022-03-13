@@ -28,7 +28,7 @@ setupIonicReact();
 ReactDOM.render(
   <React.StrictMode>
     <IonApp>
-      <CheckoutPage />
+      <CheckoutPage/>
       <PaymentPage />
     </IonApp>
   </React.StrictMode>,

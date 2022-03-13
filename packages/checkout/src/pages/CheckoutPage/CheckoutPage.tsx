@@ -19,17 +19,16 @@ import AddressItem from '../../components/AddressItem';
 import PaymentItem from '../../components/PaymentItem';
 import FadeIn from '../../components/FadeIn';
 
-var worker = new Worker('worker.js')
-worker.onmessage = function(e) {
-  console.log('received message');
-  console.log(e.data);
+interface CheckoutPageProps {
+  onDismiss?: () => void;
 }
 
-const CheckoutPage: React.FC = () => {
+const CheckoutPage: React.FC<CheckoutPageProps> = ({ onDismiss }) => {
   const { cart, user, checkout } = useContext(DataContext);
   const [selectedAddress, setSelectedAddress] = useState<Address>();
   const [selectedCreditCard, setSelectedCreditCard] = useState<CreditCard>();
   const router = useIonRouter();
+
 
   useEffect(() => {
     if (user && !selectedAddress) {
@@ -51,7 +50,7 @@ const CheckoutPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton>
+            <IonButton onClick={() => onDismiss ? onDismiss() : null}>
               Cancel
             </IonButton>
           </IonButtons>
@@ -114,7 +113,6 @@ const CheckoutPage: React.FC = () => {
                 className="order-button"
                 expand="block"
                 onClick={() => {
-worker.postMessage('hi');
                 }}
               >
                 Place Your Order
