@@ -18,7 +18,7 @@ const ShopPage = () => {
         Products
         <div className="product-list">
           {productList.map(product => (
-          <IonCard key={product.id} button href={`/shop/${product.id}`}>
+          <IonCard key={product.id} button routerLink={`/shop/${product.id}`}>
             <IonCardHeader>
               <IonImg src={`/images/${product.image}`} />
             </IonCardHeader>
