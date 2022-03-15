@@ -28,7 +28,8 @@
     "react-scripts": "5.0.0",
     "react-transition-group": "^4.4.2",
     "typescript": "^4.3.2",
-    "provider-lib": "^0.1.0"
+    "provider-lib": "^0.1.0",
+    "capacitor-portals": "^0.1.0"
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
@@ -41,7 +42,8 @@
     "build": "craco build",
     "serve": "npm run build && serve -s build -p 3001",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "capacitor:sync:after": "portals-update $CAPACITOR_PLATFORM_NAME"
   },
   "eslintConfig": {
     "extends": [

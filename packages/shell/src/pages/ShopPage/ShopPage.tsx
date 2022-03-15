@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonImg, IonCard, IonCardTitle, IonCardHeader, IonCardSubtitle } from '@ionic/react';
 import { DataContext } from 'provider-lib';
 
@@ -18,13 +18,13 @@ const ShopPage = () => {
         Products
         <div className="product-list">
           {productList.map(product => (
-          <IonCard key={product.id} button routerLink={`/shop/${product.id}`}>
+          <IonCard key={product.id} routerLink={`/shop/${product.id}`} routerDirection="forward">
             <IonCardHeader>
               <IonImg src={`/images/${product.image}`} />
             </IonCardHeader>
             <IonCardTitle>{product.title}</IonCardTitle>
             <IonCardSubtitle>
-              {new Intl.NumberFormat('en-US', { maximumSignificantDigits: 2 }).format(product.price)}
+              {new Intl.NumberFormat('en-US', { currency: 'USD', maximumSignificantDigits: 2 }).format(product.price)}
             </IonCardSubtitle>
           </IonCard>
           ))}

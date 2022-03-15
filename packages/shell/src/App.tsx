@@ -5,6 +5,12 @@ import {
   IonTabBar,
   IonTabButton,
   IonIcon,
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
   IonRouterOutlet,
   setupIonicReact
 } from '@ionic/react';
@@ -36,8 +42,9 @@ import './theme/variables.css';
 import { ShopPage } from './pages/ShopPage';
 import { ItemPage } from './pages/ItemPage';
 import { CartPage } from './pages/CartPage';
-import { HelpPage } from './pages/HelpPage';
 
+// @ts-ignore
+const HelpDetails = React.lazy(() => import('helpinfo/HelpDetails'));
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
@@ -53,22 +60,54 @@ const App: React.FC = () => {
       <IonApp>
         <IonReactRouter>
           <IonTabs>
-            <IonRouterOutlet>
-              <React.Suspense fallback="Loading Button">
+              <IonRouterOutlet>
                 <Route exact path="/">
                   <Redirect to="/shop" />
                 </Route>
-                <Route path="/shop" component={ShopPage} />
+                <Route exact path="/shop" component={ShopPage} />
                 <Route path="/shop/:id" component={ItemPage} />
-                <Route path="/help" component={HelpPage} />
-                <Route path="/cart" exact component={CartPage} />
-                <Route path="/user" exact component={UserDetailPage} />
-                <Route path="/address" exact component={AddressPage} />
-                <Route path="/address/:id" exact component={AddressPage} />
-                <Route path="/payment" exact component={PaymentPage} />
-                <Route path="/payment/:id" component={PaymentPage} />
-              </React.Suspense>
-            </IonRouterOutlet>
+                <Route exact path="/help" render={() =>
+                  <IonPage>
+                    <IonHeader translucent={true}>
+                      <IonToolbar>
+                        <IonButtons slot="start">
+                          <IonBackButton defaultHref="/shop"></IonBackButton>
+                        </IonButtons>
+                        <IonTitle>Help Info</IonTitle>
+                      </IonToolbar>
+                    </IonHeader>
+                    <React.Suspense fallback={<IonPage></IonPage>}>
+                      <HelpDetails />
+                    </React.Suspense>
+                  </IonPage>
+                }/>
+                <Route exact path="/cart" component={CartPage} />
+                <Route exact path="/user" render={() =>
+                  <React.Suspense fallback={<IonPage></IonPage>}>
+                    <UserDetailPage />
+                  </React.Suspense>
+                }/>
+                <Route exact path="/address" render={() =>
+                  <React.Suspense fallback={<IonPage></IonPage>}>
+                    <AddressPage />
+                  </React.Suspense>
+                }/>
+                <Route path="/address/:id" render={() =>
+                  <React.Suspense fallback={<IonPage></IonPage>}>
+                    <AddressPage />
+                  </React.Suspense>
+                }/>
+                <Route exact path="/payment" render={() =>
+                  <React.Suspense fallback={<IonPage></IonPage>}>
+                    <PaymentPage />
+                  </React.Suspense>
+                }/>
+                <Route path="/payment/:id" render={() =>
+                  <React.Suspense fallback={<IonPage></IonPage>}>
+                    <PaymentPage />
+                  </React.Suspense>
+                }/>
+              </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="shop" href="/shop">
                 <IonIcon icon={gridOutline} />

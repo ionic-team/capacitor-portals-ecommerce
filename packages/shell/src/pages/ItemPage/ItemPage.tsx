@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons, IonImg, IonButton } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons, IonImg, IonIcon, IonButton } from '@ionic/react';
+import { informationCircleOutline } from 'ionicons/icons';
 import { DataContext } from 'provider-lib';
 
 import './ItemPage.scss';
@@ -20,6 +21,11 @@ const ItemPage: React.FC<RouteComponentProps<ItemPageProps>> = ( { match: { para
             <IonBackButton defaultHref="/shop"></IonBackButton>
           </IonButtons>
           <IonTitle>{product ? product.title : 'Product Not Found'}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton routerLink='/help' routerDirection='forward'>
+              <IonIcon slot="icon-only" icon={informationCircleOutline}></IonIcon>
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       {product === undefined ? <div>Product Not Found</div> :
