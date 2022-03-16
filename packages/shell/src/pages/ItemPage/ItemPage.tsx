@@ -12,10 +12,11 @@ interface ItemPageProps {
 const ItemPage: React.FC<RouteComponentProps<ItemPageProps>> = ( { match: { params: { id } }} ) => {
   const { productList } = useContext(DataContext);
   const product = productList.find(product => product.id === parseInt(id), 10);
+  const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 2 });
 
   return (
     <IonPage>
-      <IonHeader translucent={true}>
+      <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/shop"></IonBackButton>
@@ -31,9 +32,12 @@ const ItemPage: React.FC<RouteComponentProps<ItemPageProps>> = ( { match: { para
       {product === undefined ? <div>Product Not Found</div> :
         <IonContent>
           <IonImg src={`/images/${product.image}`} />
-          <p>{product.price}</p>
-          <p>{product.description}</p>
-          <IonButton onClick={() => console.log('clicked')}>Add to cart</IonButton>
+          <div className="item-description">
+            <h1>{product.title}</h1>
+            <h2>{formatter.format(product.price)}</h2>
+            <p>{product.description}</p>
+            <IonButton expand="block" onClick={() => console.log('clicked')}>Add to cart</IonButton>
+          </div>
         </IonContent>
       }
     </IonPage>

@@ -38,7 +38,7 @@
     "serve": "^13.0.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "export PORT=3001; craco start",
     "build": "craco build",
     "serve": "npm run build && serve -s build -p 3001",
     "test": "react-scripts test",

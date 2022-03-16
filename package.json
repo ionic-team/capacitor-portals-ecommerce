@@ -10,6 +10,7 @@
     ]
   },
   "scripts": {
+    "start": "lerna run --parallel start",
     "serve": "lerna run --parallel serve",
     "bootstrap": "lerna bootstrap",
     "build": "export CAP_BUILD=true; lerna run build"
