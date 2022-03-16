@@ -1,20 +1,23 @@
 .product-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 16px;
 }
 ion-card {
-    margin: 10px;
+    margin: 0;
     box-shadow: none;
 
     img {
         border-radius: 16px;
     }
 }
-ion-card-header {
+#shop-page h2 {
     font-weight: 700;
     font-size: 22px;
     line-height: 28px;
     letter-spacing: -0.01em;
+    color: #000;
 }
 ion-card-title {
     font-weight: 500;

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef } from 'react';
-import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonItem, IonList, IonImg, IonSelect, IonSelectOption, IonButton, IonModal } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonItem, IonList, IonImg, IonText, IonSelect, IonSelectOption, IonButton, IonModal } from '@ionic/react';
 import { useIonModal } from '@ionic/react';
 import { RouteComponentProps } from 'react-router-dom';
 import { DataContext } from 'provider-lib';
@@ -24,6 +24,7 @@ const CartPage: React.FC<RouteComponentProps<{}>> = () => {
     if (!productPrice) return acc;
     return acc + item.quantity * productPrice;
   }, 0) || 0;
+  const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 2 });
 
   return (
     <IonPage ref={pageEl}>
@@ -33,40 +34,46 @@ const CartPage: React.FC<RouteComponentProps<{}>> = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {!cart || cart.basket?.length === 0 ? <p>Your cart is empty</p> :
-        <IonList>
-          {cart.basket.map(item => {
-            const product = productList.find(product => product.id === item.productId);
-            return product && (
-              <IonItem key={product.id}>
-                <IonImg src={`/images/${product.image}`} />
-                <h2>{product.title}</h2>
-                <IonSelect>
-                  {Array(9).fill(1).map((num, index) => <IonSelectOption>{index + 1}</IonSelectOption>)}
-                </IonSelect>
-                <p>{item.quantity}</p>
-                <p>{product.price}</p>
-              </IonItem>
-            );
-          })}
-          <IonItem>
-          <table>
-            <tr>
-              <th>Subtotal</th>
-              <td>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(subTotal)}</td>
-            </tr>
-            <tr>
-              <th>Shipping</th>
-              <td>Standard - Free</td>
-            </tr>
-            <tr>
-              <th>Subtotal</th>
-              <td>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(subTotal)} + Tax</td>
-            </tr>
-          </table>
-          </IonItem>
-          <IonButton onClick={() => present()}>Checkout</IonButton>
-        </IonList>
+        {!cart || cart.basket?.length === 0 ?
+          <IonText>
+            <p>Your cart is empty</p>
+          </IonText>
+          :
+          <>
+            <IonList>
+              {cart.basket.map(item => {
+                const product = productList.find(product => product.id === item.productId);
+                return product && (
+                  <IonItem key={product.id}>
+                    <IonImg src={`/images/${product.image}`} />
+                    <h2>{product.title}</h2>
+                    <IonSelect>
+                      {Array(9).fill(1).map((num, index) => <IonSelectOption>{index + 1}</IonSelectOption>)}
+                    </IonSelect>
+                    <p>{item.quantity}</p>
+                    <p>{product.price}</p>
+                  </IonItem>
+                );
+              })}
+            </IonList>
+            <IonItem>
+              <table>
+                <tr>
+                  <th>Subtotal</th>
+                  <td>{formatter.format(subTotal)}</td>
+                </tr>
+                <tr>
+                  <th>Shipping</th>
+                  <td>Standard - Free</td>
+                </tr>
+                <tr>
+                  <th>Subtotal</th>
+                  <td>{formatter.format(subTotal)} + Tax</td>
+                </tr>
+              </table>
+            </IonItem>
+          <IonButton expand="block" onClick={() => present()}>Checkout</IonButton>
+          </>
         }
       </IonContent>
     </IonPage>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons, IonImg, IonIcon, IonButton } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons, IonText, IonImg, IonIcon, IonButton } from '@ionic/react';
 import { informationCircleOutline } from 'ionicons/icons';
 import { DataContext } from 'provider-lib';
 
@@ -29,16 +29,21 @@ const ItemPage: React.FC<RouteComponentProps<ItemPageProps>> = ( { match: { para
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      {product === undefined ? <div>Product Not Found</div> :
+      {product === undefined ? 
         <IonContent>
-          <IonImg src={`/images/${product.image}`} />
-          <div className="item-description">
-            <h1>{product.title}</h1>
-            <h2>{formatter.format(product.price)}</h2>
-            <p>{product.description}</p>
-            <IonButton expand="block" onClick={() => console.log('clicked')}>Add to cart</IonButton>
-          </div>
-        </IonContent>
+          <IonText>Product Not Found</IonText>
+        </IonContent> :
+        <>
+          <IonContent className="ion-padding">
+            <IonImg src={`/images/${product.image}`} />
+            <IonText>
+              <h1>{product.title}</h1>
+              <h2>{formatter.format(product.price)}</h2>
+              <p>{product.description}</p>
+              <IonButton expand="block" onClick={() => console.log('clicked')}>Add to cart</IonButton>
+            </IonText>
+          </IonContent>
+        </>
       }
     </IonPage>
   );
