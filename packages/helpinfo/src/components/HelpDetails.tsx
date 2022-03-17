@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { IonContent, IonIcon, IonItem, IonPage } from '@ionic/react';
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonItem,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 import { callOutline, mailOutline } from 'ionicons/icons';
 
 import './HelpDetails.scss';

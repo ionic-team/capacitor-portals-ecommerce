@@ -4,14 +4,8 @@ import {
   IonTabs,
   IonTabBar,
   IonTabButton,
-  IonContent,
   IonIcon,
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButtons,
-  IonBackButton,
   IonRouterOutlet,
   setupIonicReact,
 } from '@ionic/react';
@@ -42,9 +36,8 @@ import './theme/variables.css';
 import { ShopPage } from './pages/ShopPage';
 import { ItemPage } from './pages/ItemPage';
 import { CartPage } from './pages/CartPage';
+import { HelpPageShell } from './pages/HelpPageShell';
 
-// @ts-ignore
-const HelpDetails = React.lazy(() => import('helpinfo/HelpDetails'));
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
@@ -66,27 +59,10 @@ const App: React.FC = () => {
               </Route>
               <Route exact path="/shop" component={ShopPage} />
               <Route path="/shop/:id" component={ItemPage} />
-              <Route
-                exact
-                path="/help"
-                render={() => (
-                  <IonPage>
-                    <IonHeader translucent={true}>
-                      <IonToolbar>
-                        <IonButtons slot="start">
-                          <IonBackButton defaultHref="/shop"></IonBackButton>
-                        </IonButtons>
-                        <IonTitle>Help Info</IonTitle>
-                      </IonToolbar>
-                    </IonHeader>
-                    <IonContent>
-                      <React.Suspense fallback={<div></div>}>
-                        <HelpDetails />
-                      </React.Suspense>
-                    </IonContent>
-                  </IonPage>
-                )}
-              />
+
+              {/* If you plan on transitioning into a page that is in outside module
+                  you will need to create a Shell Page that contains IonPage and IonContent info */}
+              <Route exact path="/help" component={HelpPageShell} />
               <Route exact path="/cart" component={CartPage} />
               <Route
                 exact
