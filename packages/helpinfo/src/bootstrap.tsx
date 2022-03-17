@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IonApp, setupIonicReact, IonPage } from '@ionic/react';
+import { IonApp, setupIonicReact, IonPage, IonContent } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,10 +31,12 @@ ReactDOM.render(
     <DataProvider>
       <IonApp>
         <IonPage id="help-page">
-          <HelpDetails />
+          <IonContent>
+            <HelpDetails />
+          </IonContent>
         </IonPage>
       </IonApp>
     </DataProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

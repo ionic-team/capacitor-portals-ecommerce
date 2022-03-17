@@ -6,16 +6,16 @@ import './HelpDetails.scss';
 
 const HelpDetails = () => {
   return (
-    <IonContent>
+    <>
       <IonItem lines="none">
         <h1>Get Assistance</h1>
       </IonItem>
       <IonItem lines="none">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </p>
       </IonItem>
       <IonItem lines="none">
@@ -30,7 +30,7 @@ const HelpDetails = () => {
           1-800-PORTALS
         </a>
       </IonItem>
-    </IonContent>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import {
   IonTabs,
   IonTabBar,
   IonTabButton,
+  IonContent,
   IonIcon,
   IonPage,
   IonHeader,
@@ -12,13 +13,12 @@ import {
   IonButtons,
   IonBackButton,
   IonRouterOutlet,
-  setupIonicReact
+  setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { gridOutline, basketOutline, personOutline } from 'ionicons/icons';
 import { Route, Redirect } from 'react-router';
 import { DataProvider } from 'provider-lib';
-
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -60,13 +60,16 @@ const App: React.FC = () => {
       <IonApp>
         <IonReactRouter>
           <IonTabs>
-              <IonRouterOutlet>
-                <Route exact path="/">
-                  <Redirect to="/shop" />
-                </Route>
-                <Route exact path="/shop" component={ShopPage} />
-                <Route path="/shop/:id" component={ItemPage} />
-                <Route exact path="/help" render={() =>
+            <IonRouterOutlet>
+              <Route exact path="/">
+                <Redirect to="/shop" />
+              </Route>
+              <Route exact path="/shop" component={ShopPage} />
+              <Route path="/shop/:id" component={ItemPage} />
+              <Route
+                exact
+                path="/help"
+                render={() => (
                   <IonPage>
                     <IonHeader translucent={true}>
                       <IonToolbar>
@@ -76,38 +79,59 @@ const App: React.FC = () => {
                         <IonTitle>Help Info</IonTitle>
                       </IonToolbar>
                     </IonHeader>
-                    <React.Suspense fallback={<IonPage></IonPage>}>
-                      <HelpDetails />
-                    </React.Suspense>
+                    <IonContent>
+                      <React.Suspense fallback={<div></div>}>
+                        <HelpDetails />
+                      </React.Suspense>
+                    </IonContent>
                   </IonPage>
-                }/>
-                <Route exact path="/cart" component={CartPage} />
-                <Route exact path="/user" render={() =>
+                )}
+              />
+              <Route exact path="/cart" component={CartPage} />
+              <Route
+                exact
+                path="/user"
+                render={() => (
                   <React.Suspense fallback={<IonPage></IonPage>}>
                     <UserDetailPage />
                   </React.Suspense>
-                }/>
-                <Route exact path="/address" render={() =>
+                )}
+              />
+              <Route
+                exact
+                path="/address"
+                render={() => (
                   <React.Suspense fallback={<IonPage></IonPage>}>
                     <AddressPage />
                   </React.Suspense>
-                }/>
-                <Route path="/address/:id" render={() =>
+                )}
+              />
+              <Route
+                path="/address/:id"
+                render={() => (
                   <React.Suspense fallback={<IonPage></IonPage>}>
                     <AddressPage />
                   </React.Suspense>
-                }/>
-                <Route exact path="/payment" render={() =>
+                )}
+              />
+              <Route
+                exact
+                path="/payment"
+                render={() => (
                   <React.Suspense fallback={<IonPage></IonPage>}>
                     <PaymentPage />
                   </React.Suspense>
-                }/>
-                <Route path="/payment/:id" render={() =>
+                )}
+              />
+              <Route
+                path="/payment/:id"
+                render={() => (
                   <React.Suspense fallback={<IonPage></IonPage>}>
                     <PaymentPage />
                   </React.Suspense>
-                }/>
-              </IonRouterOutlet>
+                )}
+              />
+            </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="shop" href="/shop">
                 <IonIcon icon={gridOutline} />
