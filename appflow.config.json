@@ -3,22 +3,22 @@
     {
       "appId": "e9597b11",
       "root": "packages/shell",
-      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap"
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap && npm run build-helpers"
     },
     {
       "appId": "3fde24f8",
       "root": "packages/account",
-      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap"
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap && npm run build-helpers"
     },
     {
       "appId": "c684a4bf",
       "root": "packages/checkout",
-      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap"
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap && npm run build-helpers"
     },
     {
       "appId": "74ef3e96",
       "root": "packages/helpinfo",
-      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap"
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run bootstrap && npm run build-helpers"
     }
   ]
 }

@@ -12,6 +12,7 @@
   "scripts": {
     "start": "lerna run --parallel start",
     "serve": "lerna run --parallel serve",
+    "build-helpers": "lerna run build --scope capacitor-portals --scope provider-lib",
     "bootstrap": "lerna bootstrap",
     "build": "export CAP_BUILD=true; lerna run build"
   },
