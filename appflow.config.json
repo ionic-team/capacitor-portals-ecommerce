@@ -1,24 +1,24 @@
 {
-    "apps": [
-     {
-       "appId": "e9597b11",
-       "root": "packages/shell",
-       "dependencyInstallCommand": "npm install"
-     },
-      {
-       "appId": "3fde24f8",
-       "root": "packages/account",
-       "dependencyInstallCommand": "npm install"
-      },
-      {
-       "appId": "c684a4bf",
-       "root": "packages/checkout",
-       "dependencyInstallCommand": "npm install"
-      },
-      {
-       "appId": "74ef3e96",
-       "root": "packages/helpinfo",
-       "dependencyInstallCommand": "npm install"
-      }
-    ]
-  }
+  "apps": [
+    {
+      "appId": "e9597b11",
+      "root": "packages/shell",
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run boostrap"
+    },
+    {
+      "appId": "3fde24f8",
+      "root": "packages/account",
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run boostrap"
+    },
+    {
+      "appId": "c684a4bf",
+      "root": "packages/checkout",
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run boostrap"
+    },
+    {
+      "appId": "74ef3e96",
+      "root": "packages/helpinfo",
+      "dependencyInstallCommand": "cd ../.. && npm install && npm run boostrap"
+    }
+  ]
+}
