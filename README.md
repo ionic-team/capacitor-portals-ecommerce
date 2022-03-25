@@ -3,6 +3,7 @@
 ```sh
 npm install
 npm run bootstrap
+npm run build
 npm run serve
 ```
 
