@@ -1,20 +1,28 @@
 {
 	"appId": "io.ionic.portals.ecommercewebapp",
 	"appName": "Portals Web App",
-	"webDir": "build",
+	"webDir": "../shell/build",
 	"bundledWebRuntime": false,
-	"portals": {
-		"account": {
-			"webDir": "../account/build",
-			"appId": "543543"
-		},
-		"checkout": {
-			"webDir": "../cart/build",
-			"appId": "543544"
-		},
-		"helpinfo": {
-			"webDir": "../helpinfo/build",
-			"appId": "543545"
+	"plugins": {
+		"Portals": {
+			"shell": {
+				"name": "shell",
+				"webDir": "../shell/build"
+			},
+			"apps": [
+				{
+					"name": "account",
+					"webDir": "../account/build"
+				},
+				{
+					"name": "checkout",
+					"webDir": "../checkout/build"
+				},
+				{
+					"name": "helpinfo",
+					"webDir": "../helpinfo/build"
+				}
+			]
 		}
 	}
 }

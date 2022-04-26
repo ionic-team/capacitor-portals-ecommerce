@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@capacitor/core": "^3.4.3",
+    "@capacitor/core": "^3.5.0",
     "@ionic/react": "^6.0.11",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -23,7 +23,7 @@
     "@types/react-transition-group": "^4.4.3",
     "craco-module-federation": "^1.1.0",
     "typescript": "^4.3.2",
-    "serve":"^13.0.2"
+    "serve": "^13.0.2"
   },
   "scripts": {
     "start": "export PORT=3005; craco start",

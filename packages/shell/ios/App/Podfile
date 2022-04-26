@@ -10,6 +10,7 @@ def capacitor_pods
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCamera', :path => '../../node_modules/@capacitor/camera'
+  pod 'IonicEnterpriseCapacitorPortals', :path => '../../node_modules/@ionic-enterprise/capacitor-portals'
 end
 
 target 'App' do

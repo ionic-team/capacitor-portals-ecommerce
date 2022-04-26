@@ -1,5 +1,4 @@
 const deps = require('./package.json').dependencies;
-const getPortalLocation = require('capacitor-portals').getPortalLocation;
 const isCapBuild = process.env.CAP_BUILD;
 
 const remotes =
@@ -10,9 +9,9 @@ const remotes =
         helpinfo: 'helpinfo@http://localhost:3006/remoteEntry.js',
       }
     : {
-        account: `account@${getPortalLocation('account')}/remoteEntry.js`,
-        checkout: `checkout@${getPortalLocation('checkout')}/remoteEntry.js`,
-        helpinfo: `helpinfo@${getPortalLocation('helpinfo')}/remoteEntry.js`,
+        account: `account@/account/remoteEntry.js`,
+        checkout: `checkout@checkout/remoteEntry.js`,
+        helpinfo: `helpinfo@/helpinfo/remoteEntry.js`,
       };
 
 module.exports = {

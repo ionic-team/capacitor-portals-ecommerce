@@ -1,7 +1,16 @@
 {
   "name": "io.ionic.portals.ecommercewebapp",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "enterprise": {
+      "keyId": 6848,
+      "productKey": "key_a179279ce1f345f98a355ccfb283ba01",
+      "appId": "b84b5b63",
+      "orgId": "3056f0e4-da1d-45ac-abcf-a487332e404f",
+      "registries": [
+        "@ionic-enterprise;https://registry.ionicframework.com/"
+      ]
+    }
   },
   "type": "react"
 }
