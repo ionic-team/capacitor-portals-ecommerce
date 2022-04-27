@@ -1,0 +1,10 @@
+[
+	{
+		"pkg": "@capacitor/camera",
+		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
+	},
+	{
+		"pkg": "@ionic-enterprise/capacitor-portals",
+		"classpath": "com.capacitorjs.portals.PortalsPlugin"
+	}
+]
