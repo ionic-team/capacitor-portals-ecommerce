@@ -9,9 +9,9 @@ const remotes =
         helpinfo: 'helpinfo@http://localhost:3006/remoteEntry.js',
       }
     : {
-        account: `account@/account/remoteEntry.js`,
+        account: `account@account/remoteEntry.js`,
         checkout: `checkout@checkout/remoteEntry.js`,
-        helpinfo: `helpinfo@/helpinfo/remoteEntry.js`,
+        helpinfo: `helpinfo@helpinfo/remoteEntry.js`,
       };
 
 module.exports = {
