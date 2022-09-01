@@ -38,6 +38,8 @@ import { ItemPage } from './pages/ItemPage';
 import { CartPage } from './pages/CartPage';
 import { HelpPageShell } from './pages/HelpPageShell';
 
+import { syncOne, syncSome, syncAll, LiveUpdate, LiveUpdateError } from '@ionic-enterprise/capacitor-portals';
+
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
 // @ts-ignore
@@ -46,6 +48,35 @@ const UserDetailPage = React.lazy(() => import('account/UserDetailPage'));
 const PaymentPage = React.lazy(() => import('checkout/PaymentPage'));
 
 setupIonicReact();
+
+syncAll({
+  onAppComplete: (liveUpdate: LiveUpdate) => {
+    console.log("syncAll App Complete: ", JSON.stringify(liveUpdate))
+  },
+  onSyncComplete: () => {
+    console.log("syncAll is completed.")
+  },
+  onError: (error: LiveUpdateError) => {
+    console.log("syncAll Error: ", JSON.stringify(error))
+  }
+})
+/**/
+/**/
+/* syncSome({ appIds: ["e9597b11"] }, { */
+/*   onAppComplete: (liveUpdate: LiveUpdate) => { */
+/*     console.log("syncAll App Complete: ", JSON.stringify(liveUpdate)) */
+/*   }, */
+/*   onSyncComplete: () => { */
+/*     console.log("syncAll is completed.") */
+/*   }, */
+/*   onError: (error: LiveUpdateError) => { */
+/*     console.log("syncAll Error: ", JSON.stringify(error)) */
+/*   } */
+/* }) */
+/**/
+/* syncOne({ appId: "e9597b11"}) */
+/*   .then((result: LiveUpdate) => console.log("syncOne ", JSON.stringify(result))) */
+/*   .catch((error: LiveUpdateError) => console.log("syncOne Error: ", JSON.stringify(error))); */
 
 const App: React.FC = () => {
   return (

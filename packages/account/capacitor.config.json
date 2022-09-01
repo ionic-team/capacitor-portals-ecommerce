@@ -1,6 +1,0 @@
-{
-	"appId": "io.ionic.portals.account",
-	"appName": "Portals Web App",
-	"webDir": "../account/build",
-	"bundledWebRuntime": false
-}

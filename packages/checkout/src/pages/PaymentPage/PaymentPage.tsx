@@ -163,7 +163,7 @@ const PaymentPage: React.FC<PaymentPageMatch> = ({ id }) => {
                         onIonChange={(event) =>
                           setCreditCard({
                             ...creditCard,
-                            expirationDate: event.detail.value!,
+                            expirationDate: event.detail.value as string,
                           })
                         }
                       ></IonDatetime>

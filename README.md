@@ -1,10 +1,9 @@
 # capacitor-portals-ecommerce
-
+This project requires pnpm
 ```sh
-npm install
-npm run bootstrap
-npm run build
-npm run serve
+pnpm install
+pnpm build
+pnpm serve
 ```
 
 Then open your browser to http://localhost:3001/
