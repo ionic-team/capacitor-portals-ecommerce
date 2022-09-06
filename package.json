@@ -1,23 +1,21 @@
 {
+  "name": "enterprise-capacitor-portals",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "account",
-      "checkout",
-      "helpinfo",
-      "shell",
-      "provider-lib"
-    ]
-  },
+  "version": "0.0.0",
   "scripts": {
-    "start": "lerna run --parallel start",
-    "serve": "lerna run --parallel serve",
-    "build-helpers": "lerna run build --scope capacitor-portals --scope provider-lib",
-    "bootstrap": "lerna bootstrap",
-    "build": "export CAP_BUILD=true; lerna run build"
+    "build": "cross-env CAP_BUILD=true nx run-many --target=build --all",
+    "serve": "nx run-many --target=serve --all",
+    "lint": "nx run-many --target=lint --all",
+    "fmt": "nx run-many --target=fmt --all",
+    "start": "nx run-many --target=start --all",
+    "reset": "find . -type dir -name node_modules | xargs rm -rf",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "nx": "14.1.9",
+    "typescript": "^4.3.0",
+    "cross-env": "^7.0.3"
   },
-  "name": "capacitor-portals-ecommerce"
+  "author": "ionic-team",
+  "packageManager": "pnpm@7.1.8"
 }

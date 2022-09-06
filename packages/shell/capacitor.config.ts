@@ -9,24 +9,30 @@ const capacitorConfig: CapacitorConfig = {
     Portals: {
       shell: {
         name: 'shell',
-        webDir: '../shell/build',
-        appId: '1321320',
+        webDir: './build',
+        liveUpdateConfig: {
+          appId: "e9597b11",
+          channel: "production",
+          autoUpdateMethod: "none"
+        }
       },
       apps: [
         {
           name: 'account',
           webDir: '../account/build',
-          appId: '1321321',
+          liveUpdateConfig: {
+          appId: "3fde24f8",
+          channel: "production",
+            autoUpdateMethod: "none"
+          }
         },
         {
           name: 'checkout',
           webDir: '../checkout/build',
-          appId: '1321322',
         },
         {
           name: 'helpinfo',
           webDir: '../helpinfo/build',
-          appId: '1321323',
         },
       ],
     },
