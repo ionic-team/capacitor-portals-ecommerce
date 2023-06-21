@@ -1,6 +1,5 @@
 package io.ionic.portals.ecommercewebapp;
 
-import com.capacitorjs.portals.CapacitorPortalsBridgeActivity;
-import com.getcapacitor.BridgeActivity;
+import com.capacitorjs.federated.FederatedCapacitorBridgeActivity;
 
-public class MainActivity extends CapacitorPortalsBridgeActivity {}
+public class MainActivity extends FederatedCapacitorBridgeActivity {}

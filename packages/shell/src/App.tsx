@@ -38,7 +38,7 @@ import { ItemPage } from './pages/ItemPage';
 import { CartPage } from './pages/CartPage';
 import { HelpPageShell } from './pages/HelpPageShell';
 
-import { syncOne, syncSome, syncAll, LiveUpdate, LiveUpdateError } from '@ionic-enterprise/capacitor-portals';
+import { syncOne, syncSome, syncAll, LiveUpdateError, SyncResult } from '@ionic-enterprise/federated-capacitor';
 
 // @ts-ignore
 const AddressPage = React.lazy(() => import('account/AddressPage'));
@@ -50,8 +50,8 @@ const PaymentPage = React.lazy(() => import('checkout/PaymentPage'));
 setupIonicReact();
 
 syncAll({
-  onAppComplete: (liveUpdate: LiveUpdate) => {
-    console.log("syncAll App Complete: ", JSON.stringify(liveUpdate))
+  onAppComplete: (result: SyncResult) => {
+    console.log("syncAll App Complete: ", JSON.stringify(result))
   },
   onSyncComplete: () => {
     console.log("syncAll is completed.")

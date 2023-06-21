@@ -4,7 +4,7 @@
 		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
 	},
 	{
-		"pkg": "@ionic-enterprise/capacitor-portals",
-		"classpath": "com.capacitorjs.portals.PortalsPlugin"
+		"pkg": "@ionic-enterprise/federated-capacitor",
+		"classpath": "com.capacitorjs.federated.FedCapPlugin"
 	}
 ]

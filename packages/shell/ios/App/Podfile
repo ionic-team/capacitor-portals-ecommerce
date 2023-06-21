@@ -1,4 +1,6 @@
-platform :ios, '12.0'
+require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
+
+platform :ios, '13.0'
 use_frameworks!
 
 # workaround to avoid Xcode caching of Pods that requires
@@ -7,13 +9,18 @@ use_frameworks!
 install! 'cocoapods', :disable_input_output_paths => true
 
 def capacitor_pods
-  pod 'Capacitor', :path => '../../../../node_modules/.pnpm/@capacitor+ios@3.7.0_@capacitor+core@3.7.0/node_modules/@capacitor/ios'
-  pod 'CapacitorCordova', :path => '../../../../node_modules/.pnpm/@capacitor+ios@3.7.0_@capacitor+core@3.7.0/node_modules/@capacitor/ios'
-  pod 'CapacitorCamera', :path => '../../../../node_modules/.pnpm/@capacitor+camera@1.3.1_@capacitor+core@3.7.0/node_modules/@capacitor/camera'
-  pod 'IonicEnterpriseCapacitorPortals', :path => '../../../../node_modules/.pnpm/@ionic-enterprise+capacitor-portals@0.0.1_@capacitor+core@3.7.0/node_modules/@ionic-enterprise/capacitor-portals'
+  pod 'Capacitor', :path => '../../../../../node_modules/.pnpm/@capacitor+ios@5.0.5_@capacitor+core@5.0.5/node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../../../../node_modules/.pnpm/@capacitor+ios@5.0.5_@capacitor+core@5.0.5/node_modules/@capacitor/ios'
+  pod 'CapacitorCamera', :path => '../../../../../node_modules/.pnpm/@capacitor+camera@5.0.4_@capacitor+core@5.0.5/node_modules/@capacitor/camera'
+  pod 'IonicEnterpriseFederatedCapacitor', :path => '../../../../federated-capacitor'
 end
 
 target 'App' do
   capacitor_pods
   # Add your Pods here
+end
+
+
+post_install do |installer|
+  assertDeploymentTarget(installer)
 end

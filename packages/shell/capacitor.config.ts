@@ -3,28 +3,28 @@ import { CapacitorConfig } from '@capacitor/cli';
 const capacitorConfig: CapacitorConfig = {
   appId: 'io.ionic.portals.ecommercewebapp',
   appName: 'Portals Web App',
-  webDir: '../shell/build',
-  bundledWebRuntime: false,
+  webDir: './build',
   plugins: {
-    Portals: {
+    FederatedCapacitor: {
+      liveUpdatesKey: 'public.pem',
       shell: {
         name: 'shell',
         webDir: './build',
         liveUpdateConfig: {
-          appId: "e9597b11",
-          channel: "production",
-          autoUpdateMethod: "none"
-        }
+          appId: 'e9597b11',
+          channel: 'production',
+          autoUpdateMethod: 'none',
+        },
       },
       apps: [
         {
           name: 'account',
           webDir: '../account/build',
           liveUpdateConfig: {
-          appId: "3fde24f8",
-          channel: "production",
-            autoUpdateMethod: "none"
-          }
+            appId: '3fde24f8',
+            channel: 'production',
+            autoUpdateMethod: 'none',
+          },
         },
         {
           name: 'checkout',
